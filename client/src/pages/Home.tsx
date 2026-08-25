@@ -16,44 +16,53 @@ import {
   X,
 } from "lucide-react";
 
-const storage = "/manus-storage/";
+const publicAssets = {
+  hero: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663073735378/PizljEwIAFCFPEoz.jpg",
+  tint: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663073735378/ByowYwQDKfsaBKnb.jpg",
+  detail: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663073735378/dnTbQdgDWPpHiZga.jpg",
+  finish: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663073735378/XlnXFumhXffFPqeB.jpg",
+  monogram: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663073735378/TqmjuJqbOxcMVums.png",
+  leather: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663073735378/CPFLkDpARfqgwvzd.webp",
+  interior: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663073735378/IrxiprcyHICoqsnO.jpg",
+  polish: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663073735378/NluOCmnKkbfDcEOK.jpg",
+};
 
 const services = [
   {
     number: "01",
     title: "Window Tinting",
     description: "Solar film tuned for Lahore heat, glare and daily cabin comfort.",
-    image: `${storage}aura-tint-feature_00ca0ea4.jpg`,
+    image: publicAssets.tint,
   },
   {
     number: "02",
     title: "Car Detailing",
     description: "Dust lifted from every seam, then finished to a quiet, touchable clarity.",
-    image: `${storage}aura-detail-workshop_6c9830d6.jpg`,
+    image: publicAssets.detail,
   },
   {
     number: "03",
     title: "Paint Protection Film",
     description: "A clear sacrificial skin against chips, scratches and the grit of city roads.",
-    image: `${storage}aura-polish-closeup_c924bf5b.jpg`,
+    image: publicAssets.polish,
   },
   {
     number: "04",
     title: "Ceramic Coating",
     description: "Hydrophobic depth that turns dust and rain into easier, cleaner maintenance.",
-    image: `${storage}aura-gallery-finish_b6e3e42e.jpg`,
+    image: publicAssets.finish,
   },
   {
     number: "05",
     title: "Paint Correction",
     description: "Measured correction to pull the haze out of black paint and return its reflection.",
-    image: `${storage}aura-gallery-finish_b6e3e42e.jpg`,
+    image: publicAssets.finish,
   },
   {
     number: "06",
     title: "Interior Protection",
     description: "Leather, fabric and touch points protected against heat, fading and the everyday drive.",
-    image: `${storage}aura-interior-detail_dd52c793.jpg`,
+    image: publicAssets.interior,
   },
 ];
 
@@ -74,11 +83,11 @@ const reasons = [
 ];
 
 const gallery = [
-  { title: "Paint Correction", tag: "SURFACE / 01", image: `${storage}aura-detail-workshop_6c9830d6.jpg` },
-  { title: "Studio Finish", tag: "FORM / 02", image: `${storage}aura-gallery-finish_b6e3e42e.jpg` },
-  { title: "Tint Installation", tag: "GLASS / 03", image: `${storage}aura-tint-feature_00ca0ea4.jpg` },
-  { title: "Ceramic Coating", tag: "SHIELD / 04", image: `${storage}aura-polish-closeup_c924bf5b.jpg` },
-  { title: "Interior Detail", tag: "CABIN / 05", image: `${storage}aura-leather-detail_542ad3d4.webp` },
+  { title: "Paint Correction", tag: "SURFACE / 01", image: publicAssets.detail },
+  { title: "Studio Finish", tag: "FORM / 02", image: publicAssets.finish },
+  { title: "Tint Installation", tag: "GLASS / 03", image: publicAssets.tint },
+  { title: "Ceramic Coating", tag: "SHIELD / 04", image: publicAssets.polish },
+  { title: "Interior Detail", tag: "CABIN / 05", image: publicAssets.leather },
 ];
 
 const process = [
@@ -91,7 +100,7 @@ const process = [
 function SectionMarker({ index, label }: { index: string; label: string }) {
   return (
     <div className="section-marker">
-      <span className="marker-mark" aria-hidden="true"><img src={`${storage}aura-monogram_3e1b7eb7.png`} alt="" /></span>
+      <span className="marker-mark" aria-hidden="true"><img src={publicAssets.monogram} alt="" /></span>
       <span className="eyebrow">{label}</span>
       <span className="section-index">/ {index}</span>
     </div>
@@ -151,7 +160,7 @@ export default function Home() {
       <header className={`site-nav ${scrolled ? "scrolled" : ""}`}>
         <div className="container nav-inner">
           <a className="brand-lockup" href="#top" onClick={() => setMenuOpen(false)} aria-label="AURA AUTO STUDIO home">
-            <img className="brand-mark" src={`${storage}aura-monogram_3e1b7eb7.png`} alt="" />
+            <img className="brand-mark" src={publicAssets.monogram} alt="" />
             <span>
               <span className="brand-name">AURA AUTO STUDIO</span>
               <span className="brand-sub">BETTER COMFORT. BETTER DRIVES.</span>
@@ -172,7 +181,7 @@ export default function Home() {
 
       <main id="top">
         <section className="hero">
-          <img className="hero-bg" src={`${storage}aura-hero_c08f5517.jpg`} alt="Black luxury vehicle under cinematic studio lighting" />
+          <img className="hero-bg" src={publicAssets.hero} alt="Black luxury vehicle under cinematic studio lighting" />
           <div className="container hero-content">
             <div className="hero-kicker eyebrow">Automotive protection / Lahore</div>
             <h1>Protect<br />what<br /><span>matters.</span></h1>
@@ -225,7 +234,7 @@ export default function Home() {
                 <button className="aura-btn aura-btn-outline" onClick={() => { setBookingOpen(true); toast("Window tint consultation selected"); }}>Explore window tints <ArrowRight className="aura-btn-arrow" /></button>
               </div>
               <div className="feature-image">
-                <img src={`${storage}aura-tint-feature_00ca0ea4.jpg`} alt="Black luxury sedan with smoked tinted windows" loading="lazy" />
+                <img src={publicAssets.tint} alt="Black luxury sedan with smoked tinted windows" loading="lazy" />
               </div>
             </div>
           </div>
@@ -271,8 +280,8 @@ export default function Home() {
                 onPointerMove={(event) => event.buttons === 1 && updateComparison(event.clientX)}
                 onKeyDown={(event) => { if (event.key === "ArrowLeft") setComparison((value) => Math.max(8, value - 5)); if (event.key === "ArrowRight") setComparison((value) => Math.min(92, value + 5)); }}
               >
-                <img className="comparison-after" src={`${storage}aura-gallery-finish_b6e3e42e.jpg`} alt="Refined black sports coupe finish" />
-                <div className="comparison-before-wrap" style={{ width: `${comparison}%` }}><img className="comparison-before" src={`${storage}aura-gallery-finish_b6e3e42e.jpg`} alt="Same finish with a muted treatment preview" /></div>
+                <img className="comparison-after" src={publicAssets.finish} alt="Refined black sports coupe finish" />
+                <div className="comparison-before-wrap" style={{ width: `${comparison}%` }}><img className="comparison-before" src={publicAssets.finish} alt="Same finish with a muted treatment preview" /></div>
                 <span className="comparison-label before">Before</span>
                 <span className="comparison-label after">After</span>
                 <div className="comparison-handle" style={{ left: `${comparison}%` }}><span /></div>
@@ -333,7 +342,7 @@ export default function Home() {
         </section>
 
         <section className="final-cta" id="contact">
-          <img src={`${storage}aura-hero_c08f5517.jpg`} alt="Black luxury vehicle in an obsidian studio" loading="lazy" />
+          <img src={publicAssets.hero} alt="Black luxury vehicle in an obsidian studio" loading="lazy" />
           <div className="container final-content reveal">
             <SectionMarker index="08" label="Your next drive" />
             <h2>Your car<br />deserves <span>Aura.</span></h2>
@@ -346,7 +355,7 @@ export default function Home() {
       <footer className="site-footer">
         <div className="container">
           <div className="footer-grid">
-            <div className="footer-brand"><a className="brand-lockup" href="#top"><img className="brand-mark" src={`${storage}aura-monogram_3e1b7eb7.png`} alt="AURA AUTO STUDIO monogram" /><span><span className="brand-name">AURA AUTO STUDIO</span><span className="brand-sub">BETTER COMFORT. BETTER DRIVES.</span></span></a><p>Premium automotive protection, detailing & styling — crafted for the drive ahead.</p></div>
+            <div className="footer-brand"><a className="brand-lockup" href="#top"><img className="brand-mark" src={publicAssets.monogram} alt="AURA AUTO STUDIO monogram" /><span><span className="brand-name">AURA AUTO STUDIO</span><span className="brand-sub">BETTER COMFORT. BETTER DRIVES.</span></span></a><p>Premium automotive protection, detailing & styling — crafted for the drive ahead.</p></div>
             <div><p className="footer-heading">Navigate</p><div className="footer-links"><a href="#top">Home</a><a href="#services">Services</a><a href="#why-aura">About</a><a href="#gallery">Gallery</a><a href="#contact">Contact</a></div></div>
             <div><p className="footer-heading">Studio / Contact</p><div className="footer-contact"><a href="https://maps.google.com/?q=Johar+Town+Lahore" target="_blank" rel="noreferrer">Johar Town, Lahore</a><a href="https://instagram.com/auraauto.studio" target="_blank" rel="noreferrer">@auraauto.studio</a><a href="mailto:hello@auraauto.studio">hello@auraauto.studio</a></div></div>
           </div>
